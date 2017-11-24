@@ -5,12 +5,17 @@
 <struts-config>
 	<form-beans>
 		<form-bean name="jobApplicatin" type="com.jobportel.beans.JobApplication" />
+		<form-bean name="createJob" type="com.jobportel.beans.CreateJob" />
 	</form-beans>
 	<action-mappings>
-		<action path="/register" name="jobApplicatin" type="com.jobportel.controllers.RegisterController"
-			input="/apply-job.jsp">
+		<action path="/register" name="jobApplicatin"
+			type="com.jobportel.controllers.RegisterController" input="/apply-job.jsp">
+			<forward name="sucess" path="/sucess.jsp" />
+		</action>
+		<action path="/createjob" name="createJob"
+			type="com.jobportel.controllers.CreateJobController" input="/create-job.jsp">
 			<forward name="sucess" path="/sucess.jsp" />
 		</action>
 	</action-mappings>
-	<message-resources parameter="Messages"/>
+	<message-resources parameter="Messages" />
 </struts-config>
